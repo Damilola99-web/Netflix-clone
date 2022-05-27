@@ -6,6 +6,7 @@ export default function Signup() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
+    const [error, setError] = useState('')
     const {user, signUp} = UserAuth()
     const Navigate = useNavigate()
     const handleSubmit = async(e) => {
@@ -14,7 +15,7 @@ export default function Signup() {
             await signUp(email, password, username)
             Navigate('/')
         } catch (error) {
-            alert(error)
+            setError(error.message)
         }
     }
   return (
@@ -26,6 +27,7 @@ export default function Signup() {
               <div className='max-w-[320px] mx-auto py-16'>
                   <p className='text-3xl font-bold'>Sign Up</p>
                   <form onSubmit={handleSubmit} className='w-full flex flex-col py-4'>
+                  {error && <p className=' p-3 my-2 bg-[orange] rounded'>{error}</p>}
                       <input onChange={(e) => setUsername(e.target.value)} className=' p-3 my-2 bg-gray-500 rounded' type="text" placeholder='First Name' />
                       <input onChange={(e) => setEmail(e.target.value)} className=' p-3 my-2 bg-gray-500 rounded' type="email"  placeholder='Email'autoComplete='email' />
                       <input onChange={(e) => setPassword(e.target.value)} className=' p-3 my-2 bg-gray-500 rounded' type="password" placeholder='Password' autoComplete='current-password'/>
