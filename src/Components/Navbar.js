@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import Avatar from '../assets/Netflix-avatar.png';
 const Navbar = () => {
 	const { user, logOut } = UserAuth();
 	const navigate = useNavigate();
+	const [ isLoggingOut, setIsLoggingOut ] = useState(false);
 	console.log(user);
 	const handleLogOut = async () => {
+		setIsLoggingOut(true);
 		try {
 			await logOut();
 			navigate('/login');
+			setIsLoggingOut(false);
 		} catch (error) {
 			alert(error);
+			setIsLoggingOut(false);
 		}
 	};
 	return (
@@ -37,9 +41,13 @@ const Navbar = () => {
 				)}
 				{user && (
 					<div className=" group relative">
-						<img src={Avatar} alt="" className=" w-10" />
+						<img src={Avatar} alt="" className=" w-8 rounded-md" />
 						<div className=" hidden group-hover:flex items-center flex-col space-y-2 justify-center absolute right-0 w-[150px] h-[100px] bg-slate-700/80 rounded">
-							<button className='bg-red-600 px-6 py-1 rounded cursor-pointer text-white  border-2 border-red-600  hover:border-white duration-300 hover:bg-transparent hover:text-white'>Account</button>
+							<Link to="/account">
+								<button className="bg-red-600 px-6 py-1 rounded cursor-pointer text-white  border-2 border-red-600  hover:border-white duration-300 hover:bg-transparent hover:text-white">
+									Account
+								</button>
+							</Link>
 							<button
 								onClick={handleLogOut}
 								className=" bg-red-600 px-6 py-1 rounded cursor-pointer text-white  border-2 border-red-600  hover:border-white duration-300 hover:bg-transparent hover:text-white"
@@ -50,6 +58,12 @@ const Navbar = () => {
 					</div>
 				)}
 			</div>
+			{/* logging out animation */}
+			{isLoggingOut && (
+				<div className="fixed w-screen h-screen z-[150] flex items-center justify-center">
+					<p>Loading...</p>
+				</div>
+			)}
 		</div>
 	);
 };
