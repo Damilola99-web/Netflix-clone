@@ -26,7 +26,7 @@ function App() {
 						</ProtectedRoute>
 					}
 				/>
-        <Route path='/details/:id' element={<MovieInfo />}/>
+				<Route path="/details/:id" element={<MovieInfo />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 		</AuthContextProvider>
