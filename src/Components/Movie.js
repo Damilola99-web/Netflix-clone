@@ -41,9 +41,9 @@ const Movie = ({ movie, id }) => {
 				<p className=" whitespace-pre-wrap text-center text:md md:text-lg font-bold  ">{movie.title.slice(0,33)}</p>
 				<p onClick={saveShow} className="absolute md:top-6 md:left-6 top-4 left-4">{like ? <FaHeart /> : <FaRegHeart />}</p>
 				<p className="absolute md:top-6 md:right-6 top-4 right-4">
-					<Link to={`/details/${movie.id}`}>
+					<a href={`../details/${movie.id}`}>
 						<p>info</p>
-					</Link>
+					</a>
 				</p>
 			</div>
 		</div>

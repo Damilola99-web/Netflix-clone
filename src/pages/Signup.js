@@ -35,26 +35,61 @@ export default function Signup() {
 						<p className="text-3xl font-bold">Sign Up</p>
 						<form onSubmit={handleSubmit} className="w-full flex flex-col py-4">
 							{error && <p className=" p-3 my-2 bg-[orange] rounded">{error}</p>}
-							<input
-								onChange={(e) => setUsername(e.target.value)}
-								className=" p-3 my-2 bg-gray-500 rounded animate"
-								type="text"
-								placeholder="First Name"
-							/>
-							<input
-								onChange={(e) => setEmail(e.target.value)}
-								className=" p-3 my-2 bg-gray-500 rounded animate"
-								type="email"
-								placeholder="Email"
-								autoComplete="email"
-							/>
-							<input
-								onChange={(e) => setPassword(e.target.value)}
-								className=" p-3 my-2 bg-gray-500 rounded animate"
-								type="password"
-								placeholder="Password"
-								autoComplete="current-password"
-							/>
+							{!clicked && (
+								<input
+									onChange={(e) => setUsername(e.target.value)}
+									className=" p-3 my-2 bg-gray-500 rounded animate"
+									type="text"
+									placeholder="First Name"
+								/>
+							)}
+							{clicked && (
+								<input
+									disabled
+									onChange={(e) => setUsername(e.target.value)}
+									className=" p-3 my-2 bg-gray-500 rounded animate"
+									type="text"
+									placeholder="First Name"
+								/>
+							)}
+							{!clicked && (
+								<input
+									onChange={(e) => setEmail(e.target.value)}
+									className=" p-3 my-2 bg-gray-500 rounded animate"
+									type="email"
+									placeholder="Email"
+									autoComplete="email"
+								/>
+							)}
+							{clicked && (
+								<input
+									disabled
+									onChange={(e) => setEmail(e.target.value)}
+									className=" p-3 my-2 bg-gray-500 rounded animate"
+									type="email"
+									placeholder="Email"
+									autoComplete="email"
+								/>
+							)}
+							{!clicked && (
+								<input
+									onChange={(e) => setPassword(e.target.value)}
+									className=" p-3 my-2 bg-gray-500 rounded animate"
+									type="password"
+									placeholder="Password"
+									autoComplete="current-password"
+								/>
+							)}
+							{clicked && (
+								<input
+									disabled
+									onChange={(e) => setPassword(e.target.value)}
+									className=" p-3 my-2 bg-gray-500 rounded animate"
+									type="password"
+									placeholder="Password"
+									autoComplete="current-password"
+								/>
+							)}
 							{!clicked && <button className=" bg-red-600 rounded py-3 my-6 font-bold ">Sign Up</button>}
 							{clicked && (
 								<button className=" bg-gray-600 rounded py-3 my-6 font-bold ">Loading...</button>
