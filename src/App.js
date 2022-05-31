@@ -9,6 +9,7 @@ import Account from './pages/Account';
 import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Search from './pages/Search';
 import Signup from './pages/Signup';
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					}
 				/>
 				<Route path="/details/:id" element={<MovieInfo />} />
+				<Route path="/search/:query" element={<Search />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 		</AuthContextProvider>

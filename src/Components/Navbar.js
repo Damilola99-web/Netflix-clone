@@ -6,6 +6,7 @@ const Navbar = () => {
 	const { user, logOut } = UserAuth();
 	const navigate = useNavigate();
 	const [ isLoggingOut, setIsLoggingOut ] = useState(false);
+	const [ search, setSearch ] = useState('');
 	console.log(user);
 	const handleLogOut = async () => {
 		setIsLoggingOut(true);
@@ -23,6 +24,12 @@ const Navbar = () => {
 			<Link to="/">
 				<p className="text-red-600 text-2xl md:text-4xl font-bold cursor-pointer">NETFLIX</p>
 			</Link>
+			<div className='items-center justify-center space-x-3 hidden md:flex'>
+				<input type="text" className='focus:outline-none px-5 py-1 rounded' onChange={(e) => setSearch(e.target.value)} />
+				<Link to={`/search/${search}`}>
+					<button className=' bg-red-600 rounded px-4 py-1 text-white text-md text-center'>search</button>
+				</Link>
+			</div>
 			<div>
 				{!user && (
 					<Link to="/signup">

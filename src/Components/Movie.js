@@ -38,7 +38,7 @@ const Movie = ({ movie, id }) => {
 				className="rounded-md w-full h-auto block"
 			/>
 			<div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 flex flex-col items-center px-4 justify-center hover:opacity-100 duration-300 text-white">
-				<p className=" whitespace-pre-wrap text-center text:md md:text-lg font-bold  ">{movie.title.slice(0,33)}</p>
+				<p className=" whitespace-pre-wrap text-center text:md md:text-lg font-bold  ">{movie.title?.slice(0,33)}</p>
 				<p onClick={saveShow} className="absolute md:top-6 md:left-6 top-4 left-4">{like ? <FaHeart /> : <FaRegHeart />}</p>
 				<p className="absolute md:top-6 md:right-6 top-4 right-4">
 					<a href={`../details/${movie.id}`}>
