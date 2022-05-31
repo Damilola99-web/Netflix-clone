@@ -22,7 +22,7 @@ export default function Signup() {
 		}
 	};
 	return (
-		<div className="w-full h-screen flex items-center absolute top-20 md:top-0">
+		<div className="w-full h-screen absolute top-28 md:top-0">
 			<img
 				className="hidden sm:block absolute w-full h-full object-cover "
 				src="https://assets.nflxext.com/ffe/siteui/vlv3/970e664f-2df4-47ce-b4fa-446082f5abc1/1a40ef0e-0488-4258-8ea1-da0527eb2b01/NG-en-20220523-popsignuptwoweeks-perspective_alpha_website_large.jpg"
