@@ -19,7 +19,7 @@ const Navbar = () => {
 		}
 	};
 	return (
-		<div className="flex items-center justify-between py-7 md:px-10 px-5 z-[100] absolute w-full">
+		<div className="flex items-center justify-between py-5 md:px-10 px-5 z-[100] fixed bg-black/50 w-full">
 			<Link to="/">
 				<p className="text-red-600 text-2xl md:text-4xl font-bold cursor-pointer">NETFLIX</p>
 			</Link>
