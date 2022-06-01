@@ -24,7 +24,7 @@ const Navbar = () => {
 	return (
 		<div className="flex items-center justify-between py-5 md:px-10 px-5 z-[100] fixed bg-black/50 w-full">
 			<Link to="/">
-				<p className="text-red-600 text-2xl md:text-4xl font-bold cursor-pointer">NETFLIX</p>
+				<p className="text-red-600 text-2xl md:text-4xl font-bold cursor-pointer">DEVFLIX</p>
 			</Link>
 			<div className={clickSearch? 'py-5 bg-black/70  items-center z-50 justify-between space-x-3 md:flex absolute w-full' : 'items-center justify-center space-x-3 hidden md:flex'}>
 			
