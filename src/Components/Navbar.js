@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import Avatar from '../assets/Netflix-avatar.png';
+import {FaSearch} from 'react-icons/fa'
 const Navbar = () => {
 	const { user, logOut } = UserAuth();
 	const navigate = useNavigate();
 	const [ isLoggingOut, setIsLoggingOut ] = useState(false);
 	const [ search, setSearch ] = useState('');
+	const [clickSearch, setClickSearch] = useState(false)
 	console.log(user);
 	const handleLogOut = async () => {
 		setIsLoggingOut(true);
@@ -24,13 +26,15 @@ const Navbar = () => {
 			<Link to="/">
 				<p className="text-red-600 text-2xl md:text-4xl font-bold cursor-pointer">NETFLIX</p>
 			</Link>
-			<div className='items-center justify-center space-x-3 hidden md:flex'>
-				<input type="text" placeholder='search here' className='focus:outline-none px-5 py-1 rounded w-[200px]' onChange={(e) => setSearch(e.target.value)} />
+			<div className={clickSearch? 'py-5 bg-black/70  items-center z-50 justify-between space-x-3 md:flex absolute w-full' : 'items-center justify-center space-x-3 hidden md:flex'}>
+			
+				<input type="text" placeholder='search here' className='focus:outline-none px-5 py-1 rounded w-[180px]' onChange={(e) => setSearch(e.target.value)} />
 				<Link to={`/search/${search}`}>
-					<button className=' bg-red-600 rounded px-4 py-1 text-white text-md text-center'>search</button>
+					<button onClick={()=>setClickSearch(false)} className=' bg-red-600 rounded px-3 md:px-4 py-1 text-white text-md text-center'>search</button>
 				</Link>
 			</div>
-			<div>
+			<div className='flex'>
+			<p onClick={()=>setClickSearch(true)} className='md:hidden cursor-pointer text-2xl text-red-600 mr-5 self-center'><FaSearch /></p>
 				{!user && (
 					<Link to="/signup">
 						<button className=" text-white border-2 border-white md:mr-8 bg-transparent px-6 py-1 rounded cursor-pointer hidden md:inline-block duration-300 hover:text-white hover:border-red-600 hover:bg-red-600">
