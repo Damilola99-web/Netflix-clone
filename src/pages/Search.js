@@ -21,6 +21,7 @@ const Search = () => {
 			<p className="ml-6 md:ml-12 my-8 text-white text-2xl font-bold md:text-3xl">
 				Search results including: {query}
 			</p>
+			<p className="ml-6 md:ml-12 my-8 text-white text-lg md:text-xl">Please be patient while loading movies...</p>
 			<div className=" w-full items-center justify-center flex flex-wrap my-8">
 				{results && results.map((movie, id) => <Movie movie={movie} id={id} />)}
 			</div>
